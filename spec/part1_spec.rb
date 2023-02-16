@@ -3,20 +3,28 @@
 require_relative '../lib/ruby_intro'
 
 describe 'Ruby intro part 1' do
-  describe '#sum' do
-
+  #This creates the "Example Group" for (ie all the tests associated with) the sum method
+  describe '#sum' do 
+    #marks the start of all the tests associated with 'returns correct sum'
     it 'returns correct sum [1 point]', points: 1 do
-      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer
-      expect(sum([1, 2, 3, 4, 5])).to eq(15)
-      expect(sum([1, 2, 3, 4, -5])).to eq(5)
-      expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90)
-    end
+      #Says that after calling sum([1, 2, 3, 4, 5]), the return should be an Integer
+      expect(sum([1, 2, 3, 4, 5])).to be_a_kind_of Integer 
+      #The return after calling the function should be 15
+      expect(sum([1, 2, 3, 4, 5])).to eq(15) 
+      #The return after calling the function should be 5
+      expect(sum([1, 2, 3, 4, -5])).to eq(5) 
+      #The return after calling the function should be -90
+      expect(sum([1, 2, 3, 4, -5, 5, -100])).to eq(-90) 
+    end #We are done making sure sum returns correct sums when given an array of integers
 
-    it 'works on the empty array [2 points]', points: 2 do
+    #These are the tests for when sum is given an empty array
+    it 'works on the empty array [2 points]', points: 2 do 
+      #After calling sum([]), there should not be an error raised
       expect { sum([]) }.not_to raise_error
+      #Calling sum with an empty array should return 0
       expect(sum([])).to be_zero
-    end
-  end
+    end #done testing sum with an empty array
+  end #done testing the sum method
 
   describe '#max_2_sum' do
     
