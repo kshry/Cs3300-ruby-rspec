@@ -34,6 +34,7 @@ end
 
 def starts_with_consonant? s
   #Do we start with a letter AND don't start with a vowel?
+  #using implicit return: ruby returns last evaluated value if not explicit return
   s.start_with?(/[a-zA-Z]/) && s.start_with?(/[^aeiouAEIOU]/) 
 end
 
@@ -44,5 +45,16 @@ end
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  attr_accessor :isbn, :price #creates getters and setters
+
+  def initialize(isbn, price)
+    #one line if and unless to act as our guard clause
+    raise ArgumentError.new if isbn.empty?
+    raise ArgumentError.new unless price > 0
+
+    #here, we didn't raise the errors, so we can set the values
+    @isbn = isbn
+    @price = price
+  end
+
 end
