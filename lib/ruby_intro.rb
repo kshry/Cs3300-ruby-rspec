@@ -39,7 +39,15 @@ def starts_with_consonant? s
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  return false if s.empty? #don't want to work with an empty string
+  #this abuses that anything other than nil and false are truthy
+  #if slice can match any thing that's not a 0 or 1, it returns a string,
+  #which will be true. Otherwise (ie a string of all 0s and 1s), it returns nil
+  return false if s.slice(/[^01]/)
+
+  #convert the binary number to an int, mod 4, ask if that's 0
+  s.to_i(2) % 4 == 0
+
 end
 
 # Part 3
@@ -54,10 +62,12 @@ class BookInStock
     raise ArgumentError.new unless price > 0
 
     #here, we didn't raise the errors, so we can set the values
+    #The @ designates the instant variable
     @isbn = isbn
     @price = price
   end
 
+  #methods default as public in Ruby
   def price_as_string
     #some freaky ruby string interpolation
     #basically, formats the instance variable price, then interpolates
