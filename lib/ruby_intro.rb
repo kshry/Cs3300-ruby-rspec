@@ -33,7 +33,8 @@ def hello(name)
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  #Do we start with a letter AND don't start with a vowel?
+  s.start_with?(/[a-zA-Z]/) && s.start_with?(/[^aeiouAEIOU]/) 
 end
 
 def binary_multiple_of_4? s
