@@ -7,7 +7,13 @@ def sum arr
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  #guard clauses
+  return 0 if arr.empty? #return 0 for an empty array
+  return arr[0] if arr.length == 1 #return the value for a 1 valued array
+  
+  arr.sort!.reverse! #array is now sorted in descending order
+
+  arr[0] + arr[1] #this is an implicit return      
 end
 
 def sum_to_n? arr, n
