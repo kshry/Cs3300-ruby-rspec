@@ -19,8 +19,8 @@ end
 def sum_to_n? arr, n
   return false unless arr.length > 1 #return false for empty and 1 element arrays
 
-  sums = [] # create a new empty array
-  #gets all possible 2 integer sums for array, puts in sums
+  sums = [] 
+  #gets all possible 2 element combinations of arr, sums them, puts in sums
   arr.combination(2) {|combination| sums.push(combination.sum)} 
 
   return sums.include?(n)
@@ -29,7 +29,7 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  "Hello, #{name}"
 end
 
 def starts_with_consonant? s
