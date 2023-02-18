@@ -45,7 +45,8 @@ end
 # Part 3
 
 class BookInStock
-  attr_accessor :isbn, :price #creates getters and setters
+  #creates getters and setters based on the tokens for the variables
+  attr_accessor :isbn, :price 
 
   def initialize(isbn, price)
     #one line if and unless to act as our guard clause
@@ -55,6 +56,12 @@ class BookInStock
     #here, we didn't raise the errors, so we can set the values
     @isbn = isbn
     @price = price
+  end
+
+  def price_as_string
+    #some freaky ruby string interpolation
+    #basically, formats the instance variable price, then interpolates
+    "$#{'%.2f' % @price}"
   end
 
 end
