@@ -17,7 +17,13 @@ def max_2_sum arr
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  return false unless arr.length > 1 #return false for empty and 1 element arrays
+
+  sums = [] # create a new empty array
+  #gets all possible 2 integer sums for array, puts in sums
+  arr.combination(2) {|combination| sums.push(combination.sum)} 
+
+  return sums.include?(n)
 end
 
 # Part 2
