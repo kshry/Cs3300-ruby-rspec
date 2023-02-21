@@ -19,11 +19,14 @@ end
 def sum_to_n? arr, n
   return false unless arr.length > 1 #return false for empty and 1 element arrays
 
-  sums = [] 
-  #gets all possible 2 element combinations of arr, sums them, puts in sums
-  arr.combination(2) {|combination| sums.push(combination.sum)} 
+  #gets all possible 2 element combinations of arr
+  arr.combination(2) {|combination| 
+  #for efficiency, return true if a combination's sum is n
+  #this is calculated as each combination is built
+  return true if (combination.sum == n)} 
 
-  return sums.include?(n)
+  #here, no combination above returned true, so we return false
+  return false
 end
 
 # Part 2
